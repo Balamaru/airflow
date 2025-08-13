@@ -13,7 +13,7 @@ default_args = {
 dag = DAG(
     "kuceng",
     default_args=default_args,
-    schedule_interval="@once",
+    schedule="@once",
     catchup=False,
     template_undefined=StrictUndefined,
 )
