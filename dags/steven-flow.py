@@ -2,11 +2,12 @@ from airflow import DAG
 from airflow.providers.cncf.kubernetes.operators.spark_kubernetes import SparkKubernetesOperator
 from airflow.utils.dates import days_ago
 from jinja2 import StrictUndefined
+from datetime import datetime, timedelta
 
 default_args = {
     "owner": "airflow",
     "depends_on_past": False,
-    "start_date": days_ago(1),
+    "start_date": datetime.now() - timedelta(days=1),
 }
 
 dag = DAG(
